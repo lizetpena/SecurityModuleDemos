@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ContosoCorp</h1>
+    <em>User</em>
+</div>
+
+<ul>
+    @foreach (var item in ViewBag.User)
+    {
+        <li>@item</li>
+    }
+</ul>

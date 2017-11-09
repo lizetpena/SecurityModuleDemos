@@ -1,0 +1,12 @@
+C:\Demos\Module9\ContosoCorp.Demo1\bin\Debug\netcoreapp2.0\ContosoCorp.Demo1.deps.json
+C:\Demos\Module9\ContosoCorp.Demo1\bin\Debug\netcoreapp2.0\ContosoCorp.Demo1.runtimeconfig.json
+C:\Demos\Module9\ContosoCorp.Demo1\bin\Debug\netcoreapp2.0\ContosoCorp.Demo1.runtimeconfig.dev.json
+C:\Demos\Module9\ContosoCorp.Demo1\bin\Debug\netcoreapp2.0\ContosoCorp.Demo1.dll
+C:\Demos\Module9\ContosoCorp.Demo1\bin\Debug\netcoreapp2.0\ContosoCorp.Demo1.pdb
+C:\Demos\Module9\ContosoCorp.Demo1\obj\Debug\netcoreapp2.0\ContosoCorp.Demo1.csprojResolveAssemblyReference.cache
+C:\Demos\Module9\ContosoCorp.Demo1\obj\Debug\netcoreapp2.0\ContosoCorp.Demo1.csproj.CoreCompileInputs.cache
+C:\Demos\Module9\ContosoCorp.Demo1\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Demos\Module9\ContosoCorp.Demo1\obj\Debug\netcoreapp2.0\ContosoCorp.Demo1.AssemblyInfoInputs.cache
+C:\Demos\Module9\ContosoCorp.Demo1\obj\Debug\netcoreapp2.0\ContosoCorp.Demo1.AssemblyInfo.cs
+C:\Demos\Module9\ContosoCorp.Demo1\obj\Debug\netcoreapp2.0\ContosoCorp.Demo1.dll
+C:\Demos\Module9\ContosoCorp.Demo1\obj\Debug\netcoreapp2.0\ContosoCorp.Demo1.pdb

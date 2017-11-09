@@ -1,0 +1,11 @@
+C:\Demos\Module9\ContosoCorp.ExternalAuth.Api\bin\Debug\netcoreapp2.0\ContosoCorp.ExternalAuth.Api.deps.json
+C:\Demos\Module9\ContosoCorp.ExternalAuth.Api\bin\Debug\netcoreapp2.0\ContosoCorp.ExternalAuth.Api.runtimeconfig.json
+C:\Demos\Module9\ContosoCorp.ExternalAuth.Api\bin\Debug\netcoreapp2.0\ContosoCorp.ExternalAuth.Api.runtimeconfig.dev.json
+C:\Demos\Module9\ContosoCorp.ExternalAuth.Api\bin\Debug\netcoreapp2.0\ContosoCorp.ExternalAuth.Api.dll
+C:\Demos\Module9\ContosoCorp.ExternalAuth.Api\bin\Debug\netcoreapp2.0\ContosoCorp.ExternalAuth.Api.pdb
+C:\Demos\Module9\ContosoCorp.ExternalAuth.Api\obj\Debug\netcoreapp2.0\ContosoCorp.ExternalAuth.Api.csproj.CoreCompileInputs.cache
+C:\Demos\Module9\ContosoCorp.ExternalAuth.Api\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Demos\Module9\ContosoCorp.ExternalAuth.Api\obj\Debug\netcoreapp2.0\ContosoCorp.ExternalAuth.Api.AssemblyInfoInputs.cache
+C:\Demos\Module9\ContosoCorp.ExternalAuth.Api\obj\Debug\netcoreapp2.0\ContosoCorp.ExternalAuth.Api.AssemblyInfo.cs
+C:\Demos\Module9\ContosoCorp.ExternalAuth.Api\obj\Debug\netcoreapp2.0\ContosoCorp.ExternalAuth.Api.dll
+C:\Demos\Module9\ContosoCorp.ExternalAuth.Api\obj\Debug\netcoreapp2.0\ContosoCorp.ExternalAuth.Api.pdb

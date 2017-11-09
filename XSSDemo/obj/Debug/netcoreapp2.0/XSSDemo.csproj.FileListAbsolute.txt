@@ -1,0 +1,11 @@
+C:\Demos\Module9\XSSDemo\bin\Debug\netcoreapp2.0\XSSDemo.deps.json
+C:\Demos\Module9\XSSDemo\bin\Debug\netcoreapp2.0\XSSDemo.runtimeconfig.json
+C:\Demos\Module9\XSSDemo\bin\Debug\netcoreapp2.0\XSSDemo.runtimeconfig.dev.json
+C:\Demos\Module9\XSSDemo\bin\Debug\netcoreapp2.0\XSSDemo.dll
+C:\Demos\Module9\XSSDemo\bin\Debug\netcoreapp2.0\XSSDemo.pdb
+C:\Demos\Module9\XSSDemo\obj\Debug\netcoreapp2.0\XSSDemo.csprojResolveAssemblyReference.cache
+C:\Demos\Module9\XSSDemo\obj\Debug\netcoreapp2.0\XSSDemo.csproj.CoreCompileInputs.cache
+C:\Demos\Module9\XSSDemo\obj\Debug\netcoreapp2.0\XSSDemo.AssemblyInfoInputs.cache
+C:\Demos\Module9\XSSDemo\obj\Debug\netcoreapp2.0\XSSDemo.AssemblyInfo.cs
+C:\Demos\Module9\XSSDemo\obj\Debug\netcoreapp2.0\XSSDemo.dll
+C:\Demos\Module9\XSSDemo\obj\Debug\netcoreapp2.0\XSSDemo.pdb

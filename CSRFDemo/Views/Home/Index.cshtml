@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Cross Site Request Forgery (CSRF)</h1>
+    
+    <p>
+        @using (Html.BeginForm("IndexAdd", "Home", FormMethod.Post))
+        {
+            // Explicitly Use a anti forgery token 
+            @*@Html.AntiForgeryToken()*@
+            
+            <p><label for="item">Add data item </label></p>
+            <p><input type="text" name="item" /></p>
+            <input id="btnAdd" type="submit" value="Add Item" class="btn btn-primary btn-large" />
+        }
+        @using (Html.BeginForm("IndexClear", "Home", FormMethod.Post))
+        {
+            <input id="btnClear" type="submit" value="Clear Items" class="btn btn-primary btn-large" />
+        }
+    </p>
+    <p><a href="~/UnknownSite.html" class="btn btn-primary btn-large">Browse to unknown Site</a></p>
+    <div>
+        <ul>
+            @{
+                var content = ViewData["dataitems"];
+                if (content != null)
+                {
+                    foreach (var item in content.ToString().Split(new[] {Environment.NewLine}, StringSplitOptions.RemoveEmptyEntries))
+                    {
+                        <li>@item</li>
+                    }
+                }
+            }
+        </ul>
+    </div>
+</div>

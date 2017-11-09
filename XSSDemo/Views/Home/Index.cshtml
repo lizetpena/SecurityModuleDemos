@@ -1,0 +1,18 @@
+﻿@inject System.Text.Encodings.Web.JavaScriptEncoder JsEncoder
+@{
+    ViewBag.Title = "Home Page";
+}
+<h2 id="welcome">Welcome to our website</h2>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+@*@JsEncoder.Encode(Html.Encode(ViewBag.UserName))*@
+
+@if (!string.IsNullOrWhiteSpace(ViewBag.UserName))
+{
+    <script type="text/javascript">
+    $(function () {
+        var message = "Welcome, @ViewBag.UserName!";
+        $('#welcome').html(message);
+    });
+    </script>
+}

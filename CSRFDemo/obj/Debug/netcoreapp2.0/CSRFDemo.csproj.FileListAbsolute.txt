@@ -1,0 +1,11 @@
+C:\Demos\Module9\CSRFDemo\bin\Debug\netcoreapp2.0\CSRFDemo.deps.json
+C:\Demos\Module9\CSRFDemo\bin\Debug\netcoreapp2.0\CSRFDemo.runtimeconfig.json
+C:\Demos\Module9\CSRFDemo\bin\Debug\netcoreapp2.0\CSRFDemo.runtimeconfig.dev.json
+C:\Demos\Module9\CSRFDemo\bin\Debug\netcoreapp2.0\CSRFDemo.dll
+C:\Demos\Module9\CSRFDemo\bin\Debug\netcoreapp2.0\CSRFDemo.pdb
+C:\Demos\Module9\CSRFDemo\obj\Debug\netcoreapp2.0\CSRFDemo.csprojResolveAssemblyReference.cache
+C:\Demos\Module9\CSRFDemo\obj\Debug\netcoreapp2.0\CSRFDemo.csproj.CoreCompileInputs.cache
+C:\Demos\Module9\CSRFDemo\obj\Debug\netcoreapp2.0\CSRFDemo.AssemblyInfoInputs.cache
+C:\Demos\Module9\CSRFDemo\obj\Debug\netcoreapp2.0\CSRFDemo.AssemblyInfo.cs
+C:\Demos\Module9\CSRFDemo\obj\Debug\netcoreapp2.0\CSRFDemo.dll
+C:\Demos\Module9\CSRFDemo\obj\Debug\netcoreapp2.0\CSRFDemo.pdb

@@ -1,0 +1,11 @@
+C:\Demos\Module9\OverPostingDemo\bin\Debug\netcoreapp2.0\OverPostingDemo.deps.json
+C:\Demos\Module9\OverPostingDemo\bin\Debug\netcoreapp2.0\OverPostingDemo.runtimeconfig.json
+C:\Demos\Module9\OverPostingDemo\bin\Debug\netcoreapp2.0\OverPostingDemo.runtimeconfig.dev.json
+C:\Demos\Module9\OverPostingDemo\bin\Debug\netcoreapp2.0\OverPostingDemo.dll
+C:\Demos\Module9\OverPostingDemo\bin\Debug\netcoreapp2.0\OverPostingDemo.pdb
+C:\Demos\Module9\OverPostingDemo\obj\Debug\netcoreapp2.0\OverPostingDemo.csprojResolveAssemblyReference.cache
+C:\Demos\Module9\OverPostingDemo\obj\Debug\netcoreapp2.0\OverPostingDemo.csproj.CoreCompileInputs.cache
+C:\Demos\Module9\OverPostingDemo\obj\Debug\netcoreapp2.0\OverPostingDemo.AssemblyInfoInputs.cache
+C:\Demos\Module9\OverPostingDemo\obj\Debug\netcoreapp2.0\OverPostingDemo.AssemblyInfo.cs
+C:\Demos\Module9\OverPostingDemo\obj\Debug\netcoreapp2.0\OverPostingDemo.dll
+C:\Demos\Module9\OverPostingDemo\obj\Debug\netcoreapp2.0\OverPostingDemo.pdb

@@ -1,0 +1,170 @@
+﻿Demo 1 - Auth (ContosoCorp)
+
+1. Walk through Startup.cs and show where we add ASP.NET Core Identity.  Show the ApplicationUser class and explore its parent classes via F12 to 
+   show some of the baked in user properties (username, email, passwordhash, etc.)
+
+Now we are going to seed our datastores with users and claims
+
+2. Create a new file in the Extensions directory named "UserInitializer.cs" and type/copy in the following:
+
+    public static class UserInitializer
+    {
+        public static async Task SeedUsers(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+        {
+            // Ensure our database has been created/update
+            context.Database.Migrate();
+
+            if (userManager.Users.Any())
+            {
+                return;
+            }
+
+            var users = new ApplicationUser[]
+            {
+                new ApplicationUser { Email = "suzyq@contosocorp.com", UserName = "suzyq@contosocorp.com" },
+                new ApplicationUser { Email = "johndoe@contosocorp.com", UserName = "johndoe@contosocorp.com" },
+                new ApplicationUser { Email = "janedoe@contosocorp.com", UserName = "janedoe@contosocorp.com" }
+            };
+
+            foreach (var user in users)
+            {
+                // Create our users with an *awesome* password
+                await userManager.CreateAsync(user, "Passw0rd!");
+            }
+
+            var suzy = await userManager.FindByEmailAsync("suzyq@contosocorp.com");
+            var john = await userManager.FindByEmailAsync("johndoe@contosocorp.com");
+            var jane = await userManager.FindByEmailAsync("janedoe@contosocorp.com");
+
+            // Suzy was born in 1970 and is a founder!
+            await userManager.AddClaimsAsync(suzy, new List<Claim>
+            {
+                new Claim("DateOfBirth", new DateTime(1970, 1, 1).ToString()),
+                new Claim("EmployeeNumber", "1")
+            });
+
+            // John was born in 1985 and is a founder!
+            await userManager.AddClaimsAsync(john, new List<Claim>
+            {
+                new Claim("DateOfBirth", new DateTime(1985, 1, 1).ToString()),
+                new Claim("EmployeeNumber", "4")
+            });
+            
+            // Jane 20 years old from now and is a regular employee!
+            await userManager.AddClaimsAsync(jane, new List<Claim>
+            {
+                new Claim("DateOfBirth", DateTime.Today.AddYears(-20).ToString()),
+                new Claim("EmployeeNumber", "101")
+            });
+        }
+    }
+
+	Note: Walk through and explain what each step is doing!  We create users, and then add claims to their profile.
+	Note: You will need to pull in some namespaces, use ctrl-. (period) to pull these in
+
+3. In Program.cs make your Main method look like the following or copy/paste in the following:
+
+		public static void Main(string[] args)
+        {
+            var host = BuildWebHost(args);
+
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+
+                try
+                {
+                    var context = services.GetRequiredService<ApplicationDbContext>();
+                    var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+                    UserInitializer.SeedUsers(context, userManager).Wait();
+                }
+                catch (Exception ex)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "An error occurred while seeding users");                    
+                }
+            }
+
+            host.Run();
+        }
+
+		Note: Make sure to point out the using statement that captures the scope. This ensures our dependencies don't live longer than this method
+		Note: You will need to pull in some namespaces, use ctrl-. (period) to pull these in
+
+4. In HomeController.cs add an [Authorize] attribute over the About action method (use ctrl-. (period) to pull in the namespace required)
+
+5. Run your app.
+6. Navigate to Contact, show that you can access it anonymously
+7. Attempt to navigate to About, show that you get redirected automatically to the login page
+8. Log in with any of the users' credentials and show that we get put back where we were
+
+That's not interesting enough though.  Any user registered on our app can access this page.  What if we only want specific users to be able to access
+a specific part of the app?  Let's establish some policies for our application!
+
+9. In Startup.cs type/copy in the following to ConfigureServices:
+
+			services.AddAuthorization(opt =>
+            {
+                opt.AddPolicy("EmployeeOnly", policy => policy.RequireClaim("EmployeeNumber"));
+            });
+
+10. In HomeController.cs, change the [Authorize] above About, to be [Authorize(Policy = "EmployeeOnly")]
+
+11. Run your app, and attempt to access the About page.  Log in, and show we can still access it.
+
+Still not very interesting.  All our users have an EmployeeNumber claim.  Let's make an exclusive Founders Only page!
+
+12. in ~/Views/Shared/_Layout.cshtml @ line 35, add the following <li> tag:
+
+	<li><a asp-area="" asp-controller="Home" asp-action="AboutFounders">AboutFounders</a></li>
+
+13. In HomeController.cs, add the following action method:
+
+        [Authorize]
+        public IActionResult AboutFounders()
+        {
+            ViewData["Message"] = "Your Founder application description page.";
+
+            return View("About");
+        }
+
+14. Now, in Startup.cs, add the following inside the services.AddAuthorization call in ConfigureServices:
+
+	opt.AddPolicy("FoundersOnly", policy => policy.RequireClaim("EmployeeNumber", "1", "2", "3", "4", "5"));
+
+	Note: we are now specifying a policy that requires a specific value (in this case one of a set) in order to "pass"
+
+15. Back in HomeController.cs, change the [Authorize] over AboutFounders to be [Authorize(Policy = "FoundersOnly")]
+
+16. Run your app
+17. Log in with either Suzy Q or John Doe, to show we can access both About pages
+18. Log in with Jane Doe and show that we are not authorized to access the Founders About page
+
+That's cool!  Now, let's say we have want to restrict part of our website to users over 21 years of age.  How would we accomplish that?
+Our claims only show when they were born, so we can't just check for the claim, or the value...  We need to perform an assertion based 
+that claim and additional data (today's date!)
+
+19. In Startup.cs, add the following inside the services.AddAuthorization call in ConfigureServices:
+
+				opt.AddPolicy("Over21", policy => policy.RequireAssertion(context =>
+                {
+                    if (context.User.HasClaim(c => c.Type == "DateOfBirth"))
+                    {
+                        var dob = DateTime.Parse(context.User.FindFirst("DateOfBirth").Value);
+                        var bornOnOrBefore = DateTime.Today.AddYears(-21);
+
+                        return dob <= bornOnOrBefore;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }));
+
+	Note: Here we are performing an assertion based on today's date, that the user's DoB indicates a user 21 years or older
+
+20. In HomeController.cs, add an [Authorize(Policy = "Over21")] above the Contact action method
+
+21. Run the app and log in with all 3 user.  Jane Doe will be unable to access the Contact page, because she is only 20.
+
+Demo 1 END
